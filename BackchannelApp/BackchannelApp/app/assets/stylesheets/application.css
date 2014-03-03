@@ -1,0 +1,240 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+#flash_error {
+    border: 1px solid #000066;
+    padding: 4px;
+    margin-bottom: 10px;
+    background-color: #cc3333;
+}
+
+#error_message {
+
+    margin-bottom: 2px;
+    color: #cc3333;
+
+}
+
+
+
+.adminPanel {
+    text-align:center;
+    margin-bottom: 4px;
+}
+
+td, th {
+    border: 1px solid;
+    padding: 15px;
+}
+
+* {
+    margin : 0;
+    padding : 0;
+}
+
+body {
+    background:#F5F5F7 url(background.jpg) repeat-x top;
+    font-family : 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size : 100.1%;
+    color : #999999;
+    text-align : center;
+}
+
+h1, h2, h3 {
+    font-weight : normal;
+    font-style : italic;
+}
+
+h1 {
+    font-size : 2.2em;
+    text-align: center;
+    text-align: left;
+
+}
+
+h2 {
+    font-size : 1.6em;
+}
+
+h3 {
+    font-family : Georgia, 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    font-size : 1.5em;
+    color : #333333;
+    margin-top : 10px;
+}
+
+p {
+    margin : 5px;
+    padding : 5px;
+    line-height : 160%;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    border-bottom : 1px dotted #666;
+}
+
+a:hover, a:focus, a:active {
+    color: #FFFFFF;
+    border-bottom : 1px solid #000;
+}
+
+a:visited {
+    color: #999;
+    border-bottom : 1px dotted #999;
+}
+
+a:visited:hover, a:visited:focus, a:visited:active {
+    color: #FFFFFF;
+    border-bottom : 1px solid #666;
+}
+
+#container {
+    position : relative;
+    width : 725px;
+    max-width : 100%;
+    margin : auto;
+    text-align : left;
+    font-size : 80%;
+    background-color: #F5F5F7;
+}
+
+#preamble, #supportingText {
+    float : right;
+    clear : none;
+    width : 38em;
+    max-width : 65%;
+    margin-bottom : 20px;
+    padding : 0 10px 0 10px;
+    border : 1px solid #ccc;
+}
+
+#preamble {
+}
+
+#supportingText {
+}
+
+#linkList {
+    position : absolute;
+    top : 220px;
+    left : 0;
+    width : 21em;
+    max-width : 28%;
+    height : auto;
+    border : 1px solid #ccc;
+    padding-left : 10px;
+    font-size : 0.75em;
+    font-style : italic;
+    color : #cc9900;
+    margin-bottom : 0;
+    background-color: #EAE8ED;
+}
+
+#footer {
+    text-align: center;
+    margin : 40px 0 20px 0;
+    text-transform : uppercase;
+}
+
+#linkList h3 {
+    font-size : 2em;
+    color : #333333;
+}
+
+ul {
+    list-style-type : none;
+    margin : 10px 5px 10px 5px;
+}
+
+li {
+    margin : 20px 0 20px 0;
+}
+
+li a {
+    display : block;
+    width : 90%;
+    height : auto;
+    padding: 0.2em;
+    padding-left : 5px;
+    font-weight : bold;
+    font-style : normal;
+    font-size : 1.4em;
+    line-height: 1.4em;
+    border : 1px solid #ccc;
+    background-color: #F5F5F7;
+}
+
+li a:hover, li a:focus, li a:active {
+    text-decoration : none;
+    border : 1px solid #999;
+    background-color: #CCCCCC;
+}
+
+li a:visited, li a:visited:hover, li a:visited:focus, li a:visited:active {
+    background : #F5F5F7;
+    border : 1px solid #ccc;
+}
+
+li a:visited:hover, li a:visited:focus, li a:visited:active {
+    border : 1px solid #999;
+    background-color: #CCCCCC;
+}
+
+#linkList ul li a.c {
+    display : block;
+    width : 85%;
+    margin-top : -1.2em;
+    margin-left : 1.2em;
+    padding-left : 0;
+    font-weight : normal;
+    font-style : italic;
+    font-size : 1.2em;
+    border : 0;
+    letter-spacing : .02em;
+}
+
+#linkList ul li a.c:hover, #linkList ul li a.c:focus, #linkList ul li a.c:active {
+    border : 0;
+    color : #000;
+}
+
+#footer a {
+    margin : 0 20px 0 20px;
+    font-size : 80%;
+    letter-spacing : .4em;
+}
+
+h3.archives, h3.resources {
+    margin-top : 60px;
+}
+
+
+#pageHeader {
+    width : 100%;
+    height : 180px;
+    background: transparent url(banner.jpg) repeat top ;
+    text-align: center;
+}
+
+#pageHeader h1, #pageHeader h2 {
+    color : #333333;
+    text-align : right;
+    padding-top : 20px;
+}
+
+#pageHeader h2 {
+    padding-top : 10px;
+}

@@ -1,0 +1,20 @@
+<div align="center" style="border:1px">
+<table align="center">
+       <tr>
+ <td><p> <%= comment.commenter %></p></td>
+
+
+  <td><p><%= comment.body %></p></td>
+
+  <td>
+  <p>
+  <% if comment.commenter == session[:user_name] %>
+  <%= link_to 'Delete Reply', [comment.post, comment],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+        <% else %>
+        Can't Delete
+      <% end %>  </p>   </td>
+       </tr>
+  </table>
+</div>

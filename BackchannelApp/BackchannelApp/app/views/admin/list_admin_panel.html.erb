@@ -1,0 +1,39 @@
+<div align="center" style="border:1px">
+  <p>
+  <strong>USER DETAILS</strong>
+ <table class="adminPanel">
+  <tr><th>User ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Admin?</th>
+  </tr>
+  <% @user.each do |u| %>
+      <tr>
+        <td><%= u.id %></td>
+        <td><%= u.username %></td>
+        <td><%= u.email %></td>
+        <td><% if u.is_admin? %>
+              Yes
+          <% else %>
+              No
+          <% end %>
+        </td>
+        <% if current_user.is_superadmin? || current_user.is_admin? %>
+            <td>
+              <% if !u.is_admin? %>
+                  <%= link_to "Promote", promote_user_path(:user_id => u.id), :method => :put%>
+              <% else %>
+                  <%= link_to "Demote", demote_user_path(:user_id => u.id), :method => :put%>
+              <% end %>
+            </td>
+        <% end %>
+        <td>
+          <%= link_to "Delete", delete_user_path(:user_id => u.id), :confirm => "Are you sure you want to delete the user? This action cannot be undone", :method => :delete%>
+        </td>
+      </tr>
+
+  <% end %>
+</table>
+  <br>
+  <br>
+</div>

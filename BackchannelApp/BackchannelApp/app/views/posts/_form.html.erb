@@ -1,0 +1,36 @@
+<% if current_user %>
+    <%= form_for @post do |f| %>
+        <% if @post.errors.any? %>
+            <div id="errorExplanation">
+              <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+                this post from being saved:</h2>
+              <ul>
+                <% @post.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <p>
+          <%= f.label :title %>
+          <%= f.text_field :title %><br>
+        </p>
+        <p>
+          <%= f.label :category %>
+          <%= select("post", "category_id", Category.find(:all).collect{ |c| [ c.category_name, c.id] }) %><br>
+        </p>
+        <p>
+          <%= f.label :text %>
+          <%= f.text_area :text %><br>
+        </p>
+        <p>
+          <%= f.label :tag_list, "Tags(separate by comma)" %>
+          <%= f.text_field :tag_list %><br>
+        </p>
+
+        <p>
+          <%= f.submit %>
+        </p>
+    <% end %>
+
+<% end %>

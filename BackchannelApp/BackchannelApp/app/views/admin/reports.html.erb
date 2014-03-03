@@ -1,0 +1,31 @@
+<div align="center" style="border:1px">
+  <p>
+    <strong>BACKCHANNEL REPORT</strong>
+  <p>
+    <%= form_tag( reports_path, :method => :get ) do %>
+        Generate Report for last <%= text_field_tag "days" %>&nbsp;
+        days
+        <%= submit_tag "Submit" %>
+    <% end %>
+  <table class="adminPanel">
+    <tr>
+      <th>Username</th>
+      <th>Posts</th>
+      <th>Time Created</th>
+      <th>Votes</th>
+
+    </tr>
+    <% @post.each do |p| %>
+
+        <tr>
+          <td><%= p.user_name %></td>
+          <td><%= p.title%></td>
+          <td><%= p.created_at%></td>
+          <td><%= p.votes %></td>
+        </tr>
+
+    <% end %>
+  </table>
+  <br>
+  <br>
+</div>

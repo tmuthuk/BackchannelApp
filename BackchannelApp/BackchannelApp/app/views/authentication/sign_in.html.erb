@@ -1,0 +1,23 @@
+<div align="center" style="border:1px">
+<br>
+<br>
+<strong>LOGIN</strong>
+<table>
+<%= form_for @user, :as => :user, :url => sign_in_path(@user) do |f| %>
+    <tr><p>
+      <%= f.label 'username/Email:' %>
+      <%= f.text_field :username %><br />
+    </p></tr>
+    <tr><p>
+      <%= f.label 'password:' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.password_field :password %><br />
+    </p></tr>
+    <tr><p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Reset', :type => 'reset' %>
+    </p></tr>
+    <tr><p>New user?&nbsp;<%= link_to "Sign up", new_user_path %>
+      </p></tr>
+<% end %>
+</table>
+</div>

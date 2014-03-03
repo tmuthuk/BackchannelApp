@@ -1,0 +1,58 @@
+<h1>Listing posts</h1><br/><br/>
+<% if current_user %>
+    <%= link_to 'Create New post', new_post_path %>
+
+
+<%end%> <br/><br/>
+test <%= @isadmin %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Posted By</th>
+    <th>Tags</th>
+    <th>Votes</th>
+    <th>Vote Up</th>
+    <th>Show Post</th>
+    <th>Edit Post</th>
+
+    <th>Destroy Post</th>
+
+    <th>Created on</th>
+  </tr>
+
+  <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.text %></td>
+
+        <td><%= post.user_name %></td>
+
+        <td> <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t)}.join(", ") %></td>
+        <td> <%= pluralize post.votes, "vote" %>
+          <% if current_user && current_user.can_vote_for?(post) && @current_user_name != post.user_name %>
+            <td> <%= link_to "vote up", vote_post_path(post, value: 1), method: "post" %> </td>
+        <% else %>
+            <td>Can't Vote</td>
+        <% end %>
+
+
+        <td><%= link_to 'Show', post %></td>
+
+        <% if @current_user_name == post.user_name %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <% else %>
+            <td>Can't edit</td>
+        <% end %>
+
+
+            <td><%= link_to 'Destroy', post_path(post),
+                            method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        post.created_at %></td>
+      </tr>
+  <% end %>
+</table>
+<br />
+<br />
+
+

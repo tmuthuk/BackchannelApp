@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <div>
+  <title>Backchannel App</title>
+
+    <div id="pageHeader">
+      <br><br>
+     <center> <b><font size=10>BACKCHANNEL APP</font></b></center>
+      </div>
+    </div>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  </div>
+
+
+</head>
+
+<body>
+<br>
+<br>
+<h5>
+  <%= form_tag posts_path, :method =>'get' do%>
+        <%= text_field_tag :search, params[:search]%>
+        <%= submit_tag "Search", :name=>nil %>
+        <%= label_tag(:search_by, "Search By") %>
+
+        <%= radio_button_tag(:choice, "User", params[:choice])  %>
+        <%= label_tag(:user, "User") %>
+        <%= radio_button_tag(:choice, "Category", params[:choice])  %>
+        <%= label_tag(:user, "Category") %>
+
+        <%= radio_button_tag(:choice, "Content",  params[:choice]) %>
+        <%= label_tag(:content, "Content") %>
+
+        <%= radio_button_tag(:choice, "Tag",  params[:choice]) %>
+        <%= label_tag(:tag, "Tag") %>
+    <% end %>
+ </h5>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to "Home", new_user_path %>&nbsp;&nbsp;
+  <% if current_user %>
+      Logged in as <%= current_user.username %>.
+      <%= link_to "Sign Out", signed_out_path %>&nbsp;&nbsp;
+      <%= link_to "Account Settings", account_settings_path %>&nbsp;&nbsp;
+      <%= link_to "Show Posts", posts_path %>&nbsp;<br />
+  <p><p>
+ <% if current_user.is_admin?%>
+      <h2> ADMIN CONTROL PANEL</h2><br />
+      <hr>
+      <%= link_to "User Details", admin_panel_path %>&nbsp;&nbsp;&nbsp;
+      <%= link_to "Generate Report", reports_path %>&nbsp;&nbsp;&nbsp;
+      <%= link_to "Create Category", categories_path %>&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Monitor Posts', posts_path %>
+ <% end %>
+  <% else %>
+      <%= link_to "Show Posts", posts_path %>&nbsp;<br>
+<% end %>
+<p>
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+
+</html>

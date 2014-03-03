@@ -1,0 +1,37 @@
+<div align="center" style="border:1px">
+<br>
+<br>
+<% if current_user.nil? %>
+<strong>SIGN UP FORM</strong>
+<table>
+<%= form_for @user, :as => :user, :url => new_user_path, :method => :post do |f| %>
+    <tr><p>
+      <%= f.label 'username:' %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.text_field :username %>
+      <%= show_field_error(@user, :username) %><br/>
+    </p></tr>
+    <tr><p>
+      <%= f.label 'email:' %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.text_field :email %>
+      <%= show_field_error(@user, :email) %><br/>
+    </p></tr>
+    <tr><p>
+      <%= f.label 'password:' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.password_field :password %>
+      <%= show_field_error(@user, :password) %><br/>
+    </p></tr>
+    <tr><p>
+      <%= f.label 'password confirmation:' %>
+      <%= f.password_field :password_confirmation %>
+      <%= show_field_error(@user, :password_confirmation) %><br/>
+    </p></tr>
+    <tr><p>
+      <%= f.submit 'Submit' %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit 'Reset', :type => 'reset' %>
+    </p></tr>
+    <tr><p> Already Registered?&nbsp;<%= link_to "Sign In", sign_in_path %>
+    </p></tr>
+<% end %>
+</table>
+<% end %>
+</div>

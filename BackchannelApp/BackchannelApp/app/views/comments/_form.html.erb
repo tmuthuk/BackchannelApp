@@ -1,0 +1,14 @@
+<%= form_for([@post, @post.comments.build]) do |f| %>
+
+      <p>
+      <%= f.hidden_field("commenter", :value=> session[:user_name] ) %>
+      </p>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body %><br />
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>

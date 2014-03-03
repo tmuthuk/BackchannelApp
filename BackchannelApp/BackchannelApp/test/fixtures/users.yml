@@ -1,0 +1,18 @@
+userone:
+  username: "test2"
+  email: "test2@admin.com"
+  admin: false
+  superadmin: false
+
+usertwo:
+  username: "test"
+  email: "test@test.com"
+  admin: false
+  superadmin: false
+
+adminuser:
+  username: "admin"
+  email: "admin@admin.com"
+  admin: true
+  superadmin: true
+

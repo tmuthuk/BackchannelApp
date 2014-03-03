@@ -1,0 +1,36 @@
+<div align="center" style="border:1px">
+  <br>
+  <br>
+  <strong>ACCOUNT SETTINGS</strong>
+<table><%= form_for @user, :as => :user, :url => account_settings_path, :method => :put do |f| %>
+    <p>
+      <%= f.label 'Current password:' %><br/>
+      <%= f.password_field :password%>
+      <%= show_field_error(@user, :password) %>
+    </p>
+    <p>
+      <%= f.label 'Username:' %><br/>
+      <%= f.text_field :username%>
+      <%= show_field_error(@user, :username) %>
+    </p>
+    <p>
+      <%= f.label 'Email:' %><br/>
+      <%= f.text_field :email %>
+      <%= show_field_error(@user, :email) %>
+    </p>
+    <p>
+      <%= f.label 'New password:' %><br/>
+      <%= f.password_field :new_password %>
+      <%= show_field_error(@user, :new_password) %>
+    </p>
+    <p>
+      <%= f.label 'Password confirmation:' %><br/>
+      <%= f.password_field :new_password_confirmation %>
+      <%= show_field_error(@user, :new_password_confirmation) %>
+    </p>
+    <p>
+      <%= f.submit 'Change' %>&nbsp;&nbsp;&nbsp;
+    </p>
+<% end %>
+</table>
+</div>
